@@ -7,7 +7,7 @@
 
     <bean
             id="cicloDeVida"
-            class="com.macv.CicloDeVida"
+            class="com.macv.ejemplos.CicloDeVida"
     >
         <property name="nombre" value="Soy un bean"/>
     </bean>

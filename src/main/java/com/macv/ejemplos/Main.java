@@ -1,4 +1,4 @@
-package com.macv;
+package com.macv.ejemplos;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;

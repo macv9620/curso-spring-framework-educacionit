@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config></context:annotation-config>
 
     <bean id="persona2"
-          class="com.macv.Persona">
+          class="com.macv.ejemplos.Persona">
         <constructor-arg index="1" type="java.lang.String" value="Mateo"/>
         <constructor-arg index="0" type="java.lang.Integer" value="1"/>
         <constructor-arg index="2" type="java.lang.String" value="Vasco"/>
@@ -12,7 +18,7 @@
 
     <bean
         id="personaCompleja"
-        class="com.macv.PersonaCompleja">
+        class="com.macv.ejemplos.PersonaCompleja">
         <constructor-arg value="101"></constructor-arg>
         <constructor-arg value="Mateo"></constructor-arg>
         <constructor-arg ref="domicilioBean"></constructor-arg>
@@ -20,7 +26,7 @@
 
     <bean
         id="domicilioBean"
-        class="com.macv.Domicilio"
+        class="com.macv.ejemplos.Domicilio"
     >
         <property name="direccion" value="Cra 21A">
         </property>
@@ -28,20 +34,34 @@
 
     <bean
         id="personaCollectionBean"
-        class="com.macv.PersonaCollection">
+        class="com.macv.ejemplos.PersonaCollection">
         <property name="id" value="201"/>
         <property name="nombre" value="Mateo"/>
         <property name="domicilios">
             <list>
-                <bean id="domicilioLegal" class="com.macv.Domicilio">
+                <bean id="domicilioLegal" class="com.macv.ejemplos.Domicilio">
                     <property name="direccion" value="CRA 12 #5-76"/>
                 </bean>
-                <bean id="domicilioParticular" class="com.macv.Domicilio">
+                <bean id="domicilioParticular" class="com.macv.ejemplos.Domicilio">
                     <property name="direccion" value="CRA 87 #5-96"/>
                 </bean>
                 <ref bean="domicilioBean"/>
             </list>
         </property>
+    </bean>
+
+
+    <bean id="empleado"
+            class="com.macv.ejemplo5.Empleado">
+        <property name="nombre" value="Empleado uno"></property>
+        <property name="legajo" value="0054545"></property>
+    </bean>
+
+    <bean id="relacionDep" class="com.macv.ejemplo5.RelacionDependencia">
+        <qualifier value="relacionDepQualifier"></qualifier>
+    </bean>
+    <bean id="freelance" class="com.macv.ejemplo5.Freelance">
+        <qualifier value="freelanceQualifier"></qualifier>
     </bean>
 
 

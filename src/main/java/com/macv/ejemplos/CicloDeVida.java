@@ -1,4 +1,4 @@
-package com.macv;
+package com.macv.ejemplos;
 
 public class CicloDeVida {
     private String nombre;
